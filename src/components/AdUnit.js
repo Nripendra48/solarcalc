@@ -10,13 +10,20 @@ export default function AdUnit({ slot, style = {} }) {
   }, []);
 
   return (
-    <ins
-      className="adsbygoogle"
-      style={{ display: "block", ...style }}
-      data-ad-client="ca-pub-XXXXXXXX"
-      data-ad-slot={slot}
-      data-ad-format="auto"
-      data-full-width-responsive="true"
-    />
+    <div className="w-100 text-center">
+      <ins
+        className="adsbygoogle"
+        style={{
+          display: "block",
+          width: "100%",
+          minHeight: "90px", // prevents layout shift
+          ...style,
+        }}
+        data-ad-client="ca-pub-XXXXXXXX"
+        data-ad-slot={slot}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    </div>
   );
 }
