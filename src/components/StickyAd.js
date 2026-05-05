@@ -6,7 +6,7 @@ export default function StickyAd() {
   return (
     <>
       {/* Spacer to prevent content hiding */}
-      <div style={{ height: "90px" }} />
+      <div style={{ height: "20px" }} />
 
       <div
         className="position-fixed bottom-0 start-0 w-100 bg-body border-top text-center"
