@@ -13,9 +13,9 @@ export default function Home() {
       <main className="container py-4 py-md-5">
 
         {/* 🔝 Top Banner Ad */}
-        <div className="mb-4 text-center">
+        {/* <div className="mb-4 text-center">
           <AdUnit slot="TOP_SLOT_ID" />
-        </div>
+        </div> */}
 
         <h1 className="mb-4 text-center text-md-start">
           Solar Calculator⚡
@@ -75,10 +75,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* 📍 Middle Ad */}
+        {/* 📍 Middle Ad
         <div className="my-5 text-center">
           <AdUnit slot="MIDDLE_SLOT_ID" />
-        </div>
+        </div> */}
 
         {/* Optional content for SEO */}
         <div className="mt-4">
@@ -91,7 +91,7 @@ export default function Home() {
       </main>
 
       {/* 📌 Sticky Bottom Ad */}
-      <StickyAd />
+      {/* <StickyAd /> */}
     </>
   );
 }
