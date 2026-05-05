@@ -1,5 +1,7 @@
 body {
   font-family: system-ui, sans-serif;
+
+   overflow-x: hidden;
 }
 
 .card {
@@ -10,3 +12,10 @@ button {
   border-radius: 8px;
 }
 
+
+/* Improve popup spacing */
+@media (max-width: 576px) {
+  .adsbygoogle {
+    max-width: 100% !important;
+  }
+}
