@@ -56,7 +56,9 @@ export default function SolarCostPage() {
   const comparison = useMemo(() => {
     return companies.map((company) => ({
       ...company,
-      estimatedCost: estimateCost(company, systemSize),
+      estimatedCost: systemSize
+        ? estimateCost(company, Number(systemSize))
+        : 0,
       midPerKw: (company.pricePerKwMin + company.pricePerKwMax) / 2,
     }));
   }, [systemSize]);
@@ -79,16 +81,27 @@ export default function SolarCostPage() {
               <div className="row align-items-end g-3">
                 <div className="col-12 col-md-6">
                   <label className="form-label">System Size (kW)</label>
+
                   <input
                     type="number"
+                    inputMode="decimal"
                     min="1"
                     step="0.1"
                     className="form-control"
                     value={systemSize}
-                    onChange={(e) => setSystemSize(Number(e.target.value) || 1)}
                     placeholder="e.g. 3"
+                    onChange={(e) => {
+                      const val = e.target.value;
+
+                      if (val === "") {
+                        setSystemSize("");
+                      } else {
+                        setSystemSize(val);
+                      }
+                    }}
                   />
                 </div>
+
                 <div className="col-12 col-md-6">
                   <div className="alert alert-info mb-0">
                     Estimated cost below uses the midpoint of each published range.
@@ -117,7 +130,7 @@ export default function SolarCostPage() {
 
                       <div className="mb-3">
                         <div className="small text-muted">
-                          Estimated for {systemSize} kW
+                          Estimated for {systemSize || 0} kW
                         </div>
                         <div className="fw-bold fs-5">
                           {formatINR(company.estimatedCost)}
