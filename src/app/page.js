@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <AdPopup />
+      {/* <AdPopup /> */}
 
       <main className="container py-4 py-md-5">
 
